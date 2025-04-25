@@ -15,25 +15,26 @@
       border: 1px solid #ccc;
       margin-bottom: 20px;
     }
-    a.download-btn {
+    .button-container {
+      margin-top: 20px;
+    }
+    a.download-btn, a.back-btn {
       display: inline-block;
       padding: 10px 20px;
-      background-color: #0099ff;
-      color: #fff;
       text-decoration: none;
       border-radius: 8px;
+      margin: 0 10px;
+    }
+    a.download-btn {
+      background-color: #0099ff;
+      color: #fff;
     }
     a.download-btn:hover {
       background-color: #007acc;
     }
     a.back-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      margin-top: 20px;
       background-color: #28a745;
       color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
     }
     a.back-btn:hover {
       background-color: #218838;
@@ -47,13 +48,14 @@
   <!-- Brochure Viewer -->
   <iframe src="brochure/ComfortKare-Brochure.pdf"></iframe>
 
-  <!-- Download Button -->
-  <br>
-  <a class="download-btn" href="brochure/ComfortKare-Brochure.pdf" download>📥 Download Brochure (PDF)</a>
+  <!-- Button Container for Download and Return -->
+  <div class="button-container">
+    <!-- Download Button -->
+    <a class="download-btn" href="brochure/ComfortKare-Brochure.pdf" download>📥 Download Brochure (PDF)</a>
 
-  <!-- Back to Home Button -->
-  <br>
-  <a class="back-btn" href="index.html">Back to Home</a>
+    <!-- Return to Home Button -->
+    <a class="back-btn" href="index.html">Return to Home Page</a>
+  </div>
 
 </body>
 </html>

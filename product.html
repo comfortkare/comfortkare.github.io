@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-container">
       <a href="index.html">
@@ -14,17 +15,7 @@
       </a>
       <nav class="main-nav">
         <a href="index.html">Home</a>
-        <div class="dropdown">
-          <button class="dropbtn">Profile</button>
-          <div class="dropdown-content">
-            <a href="profile.html">About Us</a>
-            <a href="testimonial.html">Testimonial</a>
-            <a href="brochure.html">Download Brochures</a>
-          </div>
-        </div>
         <a href="product.html">Our Product Range</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="tel:+917868879893">Call</a>
       </nav>
     </div>
   </header>
@@ -32,20 +23,35 @@
   <main>
     <section id="product-range">
       <h1 class="main-heading">Our Product Range</h1>
-      <div class="product">
-        <img src="Image/product1.jpg" alt="Facial Tissue" class="product-image" />
-        <p>Comfort Kare Facial Tissue</p>
-      </div>
-      <div class="product">
-        <img src="Image/product2.jpg" alt="Wet Wipes" class="product-image" />
-        <p>Comfort Kare Wet Wipes</p>
-      </div>
-      <!-- Add more product sections as needed -->
+
+      <?php
+      // Define the folder path
+      $dir = "images/";
+      
+      // Get all image files in the folder
+      $files = scandir($dir);
+
+      // Loop through each file
+      foreach($files as $file) {
+        // Skip . and .. directories
+        if($file != "." && $file != "..") {
+          // Only display image files (JPEG, JPG, PNG)
+          if (preg_match("/\.(jpg|jpeg|png)$/i", $file)) {
+            echo "<div class='product'>
+                    <img src='$dir$file' alt='$file' class='product-image' />
+                    <p>Comfort Kare " . ucfirst(pathinfo($file, PATHINFO_FILENAME)) . "</p>
+                  </div>";
+          }
+        }
+      }
+      ?>
+
     </section>
   </main>
 
   <footer>
-    <p style="text-align:right">© 2025 Comfort Kare. All rights reserved.</p>
+    <p>© 2025 Comfort Kare. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
