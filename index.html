@@ -5,6 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Comfort Kare - Gentle Care, Every Time</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+    }
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+    th {
+        background-color: #0077cc;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    tr:hover {
+        background-color: #ddd;
+    }
+  </style>
 </head>
 <body>
   <div class="wrapper">
@@ -23,7 +46,7 @@
 
     <main id="main-content">
       <h2><b>Welcome to Comfort Kare</b></h2>
-      <p>Bringing comfort and care to every touch. We specialize in high-quality tissue products that serve families, professionals, and everyone in between.</p>
+      <p>Bringing comfort and care to every touch. We specialize in high-quality tissue products that serve families, professionals, and businesses alike.</p>
     </main>
 
     <footer>
@@ -33,52 +56,58 @@
 
   <script>
     function showSection(section) {
-      const mainContent = document.getElementById('main-content');
-      if (section === 'about') {
-        mainContent.innerHTML = `
-          <h2>About Us</h2>
-          <p>Established as a Partnership firm in the year 2017, we “Comfort Kare” are a leading manufacturer of a wide range of Facial Tissues and Wet Wipes. Based in Tamil Nadu, India, we have built a strong foundation with an efficient infrastructure unit that plays a vital role in our business growth.</p>
-          <h3>Factsheet</h3>
-          <ul>
-            <li><b>Nature of Business:</b> Manufacturer</li>
-            <li><b>Additional Business:</b> Factory / Manufacturing, Retail Business, Wholesale Business</li>
-            <li><b>Company Director:</b> Mohamed Ibrahim Badusha</li>
-            <li><b>Registered Address:</b> 2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu 610001</li>
-            <li><b>Total Number of Employees:</b> 15 People</li>
-            <li><b>Bankers:</b> Karur Vysya Bank, AXIS BANK</li>
-            <li><b>Payment Mode:</b> Cash, UPI, Online</li>
-            <li><b>Shipment Mode:</b> By Road</li>
-          </ul>
-        `;
-      } else if (section === 'products') {
-        mainContent.innerHTML = `
-          <h2>Our Products</h2>
-          <ul>
-            <li>Facial Tissues</li>
-            <li>Wet Wipes</li>
-            <li>Pocket Tissues</li>
-          </ul>
-        `;
-      } else if (section === 'offers') {
-        mainContent.innerHTML = `
-          <h2>Special Offers</h2>
-          <p>Coming Soon! Stay Tuned!</p>
-        `;
-      } else if (section === 'contact') {
-        mainContent.innerHTML = `
-          <h2>Contact Us</h2>
-          <p>Email: info@comfortkare.com</p>
-          <p>Phone: +91 78688 79893</p>
-          <p>Address: VIP Nagar, Thiruvarur, Tamil Nadu, India 610001</p>
-        `;
-      } else if (section === 'cart') {
-        mainContent.innerHTML = `
-          <h2>Shopping Cart</h2>
-          <p>Cart functionality coming soon!</p>
-        `;
-      }
+        const mainContent = document.getElementById('main-content');
+        if (section === 'about') {
+            mainContent.innerHTML = `
+                <h2>About Us</h2>
+                <p>Founded on <b>October 1, 2024</b>, <b>Comfort Kare</b> specializes in <b>premium tissue products</b>, offering both high-quality manufactured tissues and carefully sourced resale tissue brands. By combining <b>strategic sourcing</b> with our advanced <b>infrastructure unit</b>, we ensure that our customers receive superior products at competitive prices. Our commitment to excellence allows us to balance <b>profitability with quality</b>, creating a trusted brand in the tissue market.</p>
+
+                <h3>Factsheet</h3>
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>Details</th>
+                    </tr>
+                    <tr>
+                        <td>Nature of Business</td>
+                        <td>Manufacturer & Reseller</td>
+                    </tr>
+                    <tr>
+                        <td>Additional Business</td>
+                        <td>Factory / Manufacturing, Retail Business, Wholesale Business</td>
+                    </tr>
+                    <tr>
+                        <td>Company Ownership</td>
+                        <td>Sole Proprietorship</td>
+                    </tr>
+                    <tr>
+                        <td>Founder & Owner</td>
+                        <td>Mohamed Ibrahim Badusha</td>
+                    </tr>
+                    <tr>
+                        <td>Registered Address</td>
+                        <td>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu 610001</td>
+                    </tr>
+                    <tr>
+                        <td>Total Number of Employees</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>Bankers</td>
+                        <td>Karur Vysya Bank, AXIS Bank</td>
+                    </tr>
+                    <tr>
+                        <td>Payment Modes Accepted</td>
+                        <td>Cash, UPI, Online Transactions</td>
+                    </tr>
+                    <tr>
+                        <td>Shipment Mode</td>
+                        <td>By Road</td>
+                    </tr>
+                </table>
+            `;
+        }
     }
   </script>
-
 </body>
 </html>
