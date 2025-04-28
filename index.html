@@ -8,16 +8,14 @@
   <style>
     table {
         width: 100%;
-        height: auto; /* Ensures the table adapts to content height */
         border-collapse: collapse;
         margin-top: 20px;
         font-family: Arial, sans-serif;
     }
     th, td {
-        padding: 15px; /* Improved padding for better readability */
+        padding: 15px;
         text-align: left;
         border: 1px solid #ddd;
-        vertical-align: middle; /* Ensures content is properly centered */
     }
     th {
         background-color: #0077cc;
@@ -43,6 +41,25 @@
     .download-btn:hover {
         background-color: #005fa3;
     }
+    form {
+        margin-top: 20px;
+    }
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    input[type="submit"] {
+        background-color: #0077cc;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #005fa3;
+    }
   </style>
 </head>
 <body>
@@ -55,6 +72,7 @@
           <a href="#" onclick="showSection('products')">Products</a>
           <a href="#" onclick="showSection('offers')">Offers</a>
           <a href="#" onclick="showSection('contact')">Contact Us</a>
+          <a href="#" onclick="showSection('rate_us')">Rate Us</a>
           <a href="#" onclick="showSection('cart')">Cart</a>
         </nav>
       </div>
@@ -78,13 +96,9 @@
             mainContent.innerHTML = `
                 <h2>About Us</h2>
                 <p>Founded on <b>October 1, 2024</b>, <b>Comfort Kare</b> specializes in <b>premium tissue products</b>, offering both high-quality manufactured tissues and carefully sourced resale tissue brands.</p>
-                
                 <h3>Factsheet</h3>
                 <table>
-                    <tr>
-                        <th>Category</th>
-                        <th>Details</th>
-                    </tr>
+                    <tr><th>Category</th><th>Details</th></tr>
                     <tr><td>Nature of Business</td><td>Manufacturer & Reseller</td></tr>
                     <tr><td>Company Ownership</td><td>Sole Proprietorship</td></tr>
                     <tr><td>Founder & Owner</td><td>Mohamed Ibrahim Badusha</td></tr>
@@ -93,34 +107,22 @@
                 </table>
             `;
         } 
-        else if (section === 'products') {
-            let catalogs = [
-                { name: "Comfort Kare - Premium Collection", file: "https://comfortkare.github.io/brochure/premium/Comfort%20Kare%20-%20Premium%20Collection.pdf" },
-                { name: "Comfort Kare - Special Edition", file: "https://comfortkare.github.io/brochure/special-edition/Comfort%20Kare%20-%20Special%20Edition.pdf" },
-                { name: "Comfort Kare - Festive Collection", file: "https://comfortkare.github.io/brochure/festive/Comfort%20Kare%20-%20Festive%20Collection.pdf" }
-            ];
-
-            let catalogList = `<h2>Our Product Catalogs</h2>
-                <p>Explore our premium tissue collections. Click below to view or download the latest catalogs.</p>
-                <table>
-                    <tr>
-                        <th>Catalog Name</th>
-                        <th>Preview / Download</th>
-                    </tr>`;
-
-            catalogs.forEach(catalog => {
-                catalogList += `
-                    <tr>
-                        <td>${catalog.name}</td>
-                        <td>
-                            <a href="${catalog.file}" target="_blank" class="view-btn">View</a> | 
-                            <a href="${catalog.file}" download="${catalog.name}.pdf" class="download-btn">Download</a>
-                        </td>
-                    </tr>`;
-            });
-
-            catalogList += `</table>`;
-            mainContent.innerHTML = catalogList;
+        else if (section === 'rate_us') {
+            mainContent.innerHTML = `
+                <h2>Rate Comfort Kare Products</h2>
+                <p>Let us know your experience with Comfort Kare!</p>
+                <form action="submit_rating.php" method="POST">
+                    <label for="stars">Rate Us (1-5):</label>
+                    <select name="stars" id="stars">
+                        <option value="5">⭐⭐⭐⭐⭐ (Excellent)</option>
+                        <option value="4">⭐⭐⭐⭐ (Very Good)</option>
+                        <option value="3">⭐⭐⭐ (Average)</option>
+                        <option value="2">⭐⭐ (Below Average)</option>
+                        <option value="1">⭐ (Poor)</option>
+                    </select>
+                    <button type="submit">Submit Rating</button>
+                </form>
+            `;
         }
     }
   </script>
