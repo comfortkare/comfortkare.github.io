@@ -67,3 +67,19 @@ footer {
   color: #555;
   font-size: 14px;
 }
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff66b2; /* Pink color */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.download-btn:hover {
+    background-color: #cc3399; /* Darker pink on hover */
+}
