@@ -8,14 +8,16 @@
   <style>
     table {
         width: 100%;
+        height: auto; /* Ensures the table adapts to content height */
         border-collapse: collapse;
         margin-top: 20px;
         font-family: Arial, sans-serif;
     }
     th, td {
-        padding: 12px;
+        padding: 15px; /* Improved padding for better readability */
         text-align: left;
         border: 1px solid #ddd;
+        vertical-align: middle; /* Ensures content is properly centered */
     }
     th {
         background-color: #0077cc;
@@ -69,7 +71,7 @@
   </div>
 
   <script>
-    async function showSection(section) {
+    function showSection(section) {
         const mainContent = document.getElementById('main-content');
 
         if (section === 'about') {
@@ -103,24 +105,19 @@
                 <table>
                     <tr>
                         <th>Catalog Name</th>
-                        <th>Upload Date</th>
                         <th>Preview / Download</th>
                     </tr>`;
 
-            for (let catalog of catalogs) {
-                let response = await fetch(catalog.file, { method: 'HEAD' });
-                let lastModified = response.headers.get('Last-Modified') || "Unknown Date";
-
+            catalogs.forEach(catalog => {
                 catalogList += `
                     <tr>
                         <td>${catalog.name}</td>
-                        <td>${new Date(lastModified).toISOString().split('T')[0]}</td>
                         <td>
                             <a href="${catalog.file}" target="_blank" class="view-btn">View</a> | 
                             <a href="${catalog.file}" download="${catalog.name}.pdf" class="download-btn">Download</a>
                         </td>
                     </tr>`;
-            }
+            });
 
             catalogList += `</table>`;
             mainContent.innerHTML = catalogList;
