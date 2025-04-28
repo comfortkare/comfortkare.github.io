@@ -69,7 +69,7 @@
   </div>
 
   <script>
-    function showSection(section) {
+    async function showSection(section) {
         const mainContent = document.getElementById('main-content');
 
         // About Us Section
@@ -93,50 +93,40 @@
             `;
         } 
         
-        // Products Section with Downloadable Brochures
+        // Products Section with Downloadable Brochures & Dynamic Dates
         else if (section === 'products') {
             let catalogs = [
-                { name: "Comfort Kare - Premium Collection", file: "https://raw.githubusercontent.com/comfortkare/comfortkare.github.io/main/brochure/premium/Comfort%20Kare%20-%20Premium%20Collection.pdf", date: "2025-04-20" },
-                { name: "Comfort Kare - Special Edition", file: "https://raw.githubusercontent.com/comfortkare/comfortkare.github.io/main/brochure/special-edition/Comfort%20Kare%20-%20Special%20Edition.pdf", date: "2025-03-15" },
-                { name: "Comfort Kare - Festive Collection", file: "https://raw.githubusercontent.com/comfortkare/comfortkare.github.io/main/brochure/festive/Comfort%20Kare%20-%20Festive%20Collection.pdf", date: "2025-02-10" }
+                { name: "Comfort Kare - Premium Collection", file: "https://comfortkare.github.io/brochure/premium/Comfort%20Kare%20-%20Premium%20Collection.pdf" },
+                { name: "Comfort Kare - Special Edition", file: "https://comfortkare.github.io/brochure/special-edition/Comfort%20Kare%20-%20Special%20Edition.pdf" },
+                { name: "Comfort Kare - Festive Collection", file: "https://comfortkare.github.io/brochure/festive/Comfort%20Kare%20-%20Festive%20Collection.pdf" }
             ];
 
-            // Sort catalogs by date (most recent first)
-            catalogs.sort((a, b) => new Date(b.date) - new Date(a.date));
+            let catalogList = `<h2>Our Product Catalogs</h2>
+                <p>Explore our premium tissue collections. Click below to view or download the latest catalogs.</p>
+                <table>
+                    <tr>
+                        <th>Catalog Name</th>
+                        <th>Upload Date</th>
+                        <th>Preview / Download</th>
+                    </tr>`;
 
-            if (catalogs.length > 0) {
-                let catalogList = `<h2>Our Product Catalogs</h2>
-                    <p>Explore our premium tissue collections. Click below to view or download the latest catalogs.</p>
-                    <table>
-                        <tr>
-                            <th>Catalog Name</th>
-                            <th>Upload Date</th>
-                            <th>Preview / Download</th>
-                        </tr>`;
+            for (let catalog of catalogs) {
+                let response = await fetch(catalog.file, { method: 'HEAD' });
+                let lastModified = response.headers.get('Last-Modified') || "Unknown Date";
 
-                catalogs.forEach(catalog => {
-                    catalogList += `
-                        <tr>
-                            <td>${catalog.name}</td>
-                            <td>${catalog.date}</td>
-                            <td>
-                                <a href="${catalog.file}" target="_blank">View</a> | 
-                                <a href="${catalog.file}" download>Download</a>
-                            </td>
-                        </tr>`;
-                });
-
-                catalogList += `</table>`;
-                mainContent.innerHTML = catalogList;
-            } else {
-                mainContent.innerHTML = `
-                    <h2>Our Product Catalogs</h2>
-                    <p>We are currently updating our catalogs. Please check back soon for the latest products!</p>
-                    <p style="text-align: center;">
-                        <img src="images/coming-soon.png" alt="Coming Soon" width="200px">
-                    </p>
-                `;
+                catalogList += `
+                    <tr>
+                        <td>${catalog.name}</td>
+                        <td>${new Date(lastModified).toISOString().split('T')[0]}</td>
+                        <td>
+                            <a href="${catalog.file}" target="_blank">View</a> | 
+                            <a href="${catalog.file}" download="${catalog.name}.pdf" class="download-btn">Download</a>
+                        </td>
+                    </tr>`;
             }
+
+            catalogList += `</table>`;
+            mainContent.innerHTML = catalogList;
         }
     }
   </script>
