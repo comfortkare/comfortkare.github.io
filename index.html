@@ -72,8 +72,29 @@
     function showSection(section) {
         const mainContent = document.getElementById('main-content');
 
-        if (section === 'products') {
-            // List of catalogs with direct GitHub links
+        // About Us Section
+        if (section === 'about') {
+            mainContent.innerHTML = `
+                <h2>About Us</h2>
+                <p>Founded on <b>October 1, 2024</b>, <b>Comfort Kare</b> specializes in <b>premium tissue products</b>, offering both high-quality manufactured tissues and carefully sourced resale tissue brands.</p>
+                
+                <h3>Factsheet</h3>
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>Details</th>
+                    </tr>
+                    <tr><td>Nature of Business</td><td>Manufacturer & Reseller</td></tr>
+                    <tr><td>Company Ownership</td><td>Sole Proprietorship</td></tr>
+                    <tr><td>Founder & Owner</td><td>Mohamed Ibrahim Badusha</td></tr>
+                    <tr><td>Registered Address</td><td>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu 610001</td></tr>
+                    <tr><td>Total Number of Employees</td><td>15</td></tr>
+                </table>
+            `;
+        } 
+        
+        // Products Section with Downloadable Brochures
+        else if (section === 'products') {
             let catalogs = [
                 { name: "Comfort Kare - Premium Collection", file: "https://raw.githubusercontent.com/comfortkare/comfortkare.github.io/main/brochure/premium/Comfort%20Kare%20-%20Premium%20Collection.pdf", date: "2025-04-20" },
                 { name: "Comfort Kare - Special Edition", file: "https://raw.githubusercontent.com/comfortkare/comfortkare.github.io/main/brochure/special-edition/Comfort%20Kare%20-%20Special%20Edition.pdf", date: "2025-03-15" },
