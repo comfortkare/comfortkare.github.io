@@ -71,40 +71,51 @@
   <script>
     function showSection(section) {
         const mainContent = document.getElementById('main-content');
-        
-        if (section === 'about') {
-            mainContent.innerHTML = `
-                <h2>About Us</h2>
-                <p>Founded on <b>October 1, 2024</b>, <b>Comfort Kare</b> specializes in <b>premium tissue products</b>, offering both high-quality manufactured tissues and carefully sourced resale tissue brands. By combining <b>strategic sourcing</b> with our advanced <b>infrastructure unit</b>, we ensure that our customers receive superior products at competitive prices.</p>
-                
-                <h3>Factsheet</h3>
-                <table>
-                    <tr>
-                        <th>Category</th>
-                        <th>Details</th>
-                    </tr>
-                    <tr><td>Nature of Business</td><td>Manufacturer & Reseller</td></tr>
-                    <tr><td>Additional Business</td><td>Factory / Manufacturing, Retail Business, Wholesale Business</td></tr>
-                    <tr><td>Company Ownership</td><td>Sole Proprietorship</td></tr>
-                    <tr><td>Founder & Owner</td><td>Mohamed Ibrahim Badusha</td></tr>
-                    <tr><td>Registered Address</td><td>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu 610001</td></tr>
-                    <tr><td>Total Number of Employees</td><td>15</td></tr>
-                    <tr><td>Bankers</td><td>Karur Vysya Bank, AXIS Bank</td></tr>
-                    <tr><td>Payment Modes Accepted</td><td>Cash, UPI, Online Transactions</td></tr>
-                    <tr><td>Shipment Mode</td><td>By Road</td></tr>
-                </table>
-            `;
-        } else if (section === 'products') {
-            mainContent.innerHTML = `
-                <h2>Our Product Catalog</h2>
-                <p>Explore our premium tissue collection in detail. Click below to view our catalog or download the brochure.</p>
-                
-                <iframe src="brochure-folder/catalog.pdf" width="100%" height="500px"></iframe>
 
-                <p style="text-align: center;">
-                    <a href="brochure-folder/catalog.pdf" download class="download-btn">Download Brochure (PDF)</a>
-                </p>
-            `;
+        if (section === 'products') {
+            // List of catalogs (update as needed)
+            let catalogs = [
+                { name: "Comfort Kare - Premium Collection", file: "brochure-folder/catalog1.pdf", date: "2025-04-20" },
+                { name: "Comfort Kare - Special Edition", file: "brochure-folder/catalog2.pdf", date: "2025-03-15" },
+                { name: "Comfort Kare - Festive Collection", file: "brochure-folder/catalog3.pdf", date: "2025-02-10" }
+            ];
+
+            // Sort catalogs by date (most recent first)
+            catalogs.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            if (catalogs.length > 0) {
+                let catalogList = `<h2>Our Product Catalogs</h2>
+                    <p>Explore our premium tissue collections. Click below to view or download the latest catalogs.</p>
+                    <table>
+                        <tr>
+                            <th>Catalog Name</th>
+                            <th>Upload Date</th>
+                            <th>Preview / Download</th>
+                        </tr>`;
+
+                catalogs.forEach(catalog => {
+                    catalogList += `
+                        <tr>
+                            <td>${catalog.name}</td>
+                            <td>${catalog.date}</td>
+                            <td>
+                                <a href="${catalog.file}" target="_blank">View</a> | 
+                                <a href="${catalog.file}" download>Download</a>
+                            </td>
+                        </tr>`;
+                });
+
+                catalogList += `</table>`;
+                mainContent.innerHTML = catalogList;
+            } else {
+                mainContent.innerHTML = `
+                    <h2>Our Product Catalogs</h2>
+                    <p>We are currently updating our catalogs. Please check back soon for the latest products!</p>
+                    <p style="text-align: center;">
+                        <img src="images/coming-soon.png" alt="Coming Soon" width="200px">
+                    </p>
+                `;
+            }
         }
     }
   </script>
