@@ -27,6 +27,20 @@
     tr:hover {
         background-color: #ddd;
     }
+    .download-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #0077cc;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .download-btn:hover {
+        background-color: #005fa3;
+    }
   </style>
 </head>
 <body>
@@ -57,54 +71,39 @@
   <script>
     function showSection(section) {
         const mainContent = document.getElementById('main-content');
+        
         if (section === 'about') {
             mainContent.innerHTML = `
                 <h2>About Us</h2>
-                <p>Founded on <b>October 1, 2024</b>, <b>Comfort Kare</b> specializes in <b>premium tissue products</b>, offering both high-quality manufactured tissues and carefully sourced resale tissue brands. By combining <b>strategic sourcing</b> with our advanced <b>infrastructure unit</b>, we ensure that our customers receive superior products at competitive prices. Our commitment to excellence allows us to balance <b>profitability with quality</b>, creating a trusted brand in the tissue market.</p>
-
+                <p>Founded on <b>October 1, 2024</b>, <b>Comfort Kare</b> specializes in <b>premium tissue products</b>, offering both high-quality manufactured tissues and carefully sourced resale tissue brands. By combining <b>strategic sourcing</b> with our advanced <b>infrastructure unit</b>, we ensure that our customers receive superior products at competitive prices.</p>
+                
                 <h3>Factsheet</h3>
                 <table>
                     <tr>
                         <th>Category</th>
                         <th>Details</th>
                     </tr>
-                    <tr>
-                        <td>Nature of Business</td>
-                        <td>Manufacturer & Reseller</td>
-                    </tr>
-                    <tr>
-                        <td>Additional Business</td>
-                        <td>Factory / Manufacturing, Retail Business, Wholesale Business</td>
-                    </tr>
-                    <tr>
-                        <td>Company Ownership</td>
-                        <td>Sole Proprietorship</td>
-                    </tr>
-                    <tr>
-                        <td>Founder & Owner</td>
-                        <td>Mohamed Ibrahim Badusha</td>
-                    </tr>
-                    <tr>
-                        <td>Registered Address</td>
-                        <td>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu 610001</td>
-                    </tr>
-                    <tr>
-                        <td>Total Number of Employees</td>
-                        <td>15</td>
-                    </tr>
-                    <tr>
-                        <td>Bankers</td>
-                        <td>Karur Vysya Bank, AXIS Bank</td>
-                    </tr>
-                    <tr>
-                        <td>Payment Modes Accepted</td>
-                        <td>Cash, UPI, Online Transactions</td>
-                    </tr>
-                    <tr>
-                        <td>Shipment Mode</td>
-                        <td>By Road</td>
-                    </tr>
+                    <tr><td>Nature of Business</td><td>Manufacturer & Reseller</td></tr>
+                    <tr><td>Additional Business</td><td>Factory / Manufacturing, Retail Business, Wholesale Business</td></tr>
+                    <tr><td>Company Ownership</td><td>Sole Proprietorship</td></tr>
+                    <tr><td>Founder & Owner</td><td>Mohamed Ibrahim Badusha</td></tr>
+                    <tr><td>Registered Address</td><td>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu 610001</td></tr>
+                    <tr><td>Total Number of Employees</td><td>15</td></tr>
+                    <tr><td>Bankers</td><td>Karur Vysya Bank, AXIS Bank</td></tr>
+                    <tr><td>Payment Modes Accepted</td><td>Cash, UPI, Online Transactions</td></tr>
+                    <tr><td>Shipment Mode</td><td>By Road</td></tr>
                 </table>
+            `;
+        } else if (section === 'products') {
+            mainContent.innerHTML = `
+                <h2>Our Product Catalog</h2>
+                <p>Explore our premium tissue collection in detail. Click below to view our catalog or download the brochure.</p>
+                
+                <iframe src="brochure-folder/catalog.pdf" width="100%" height="500px"></iframe>
+
+                <p style="text-align: center;">
+                    <a href="brochure-folder/catalog.pdf" download class="download-btn">Download Brochure (PDF)</a>
+                </p>
             `;
         }
     }
