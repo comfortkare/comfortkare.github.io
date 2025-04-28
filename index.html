@@ -1,130 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Comfort Kare - Gentle Care, Every Time</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-        font-family: Arial, sans-serif;
-    }
-    th, td {
-        padding: 15px;
-        text-align: left;
-        border: 1px solid #ddd;
-    }
-    th {
-        background-color: #0077cc;
-        color: white;
-    }
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-    tr:hover {
-        background-color: #ddd;
-    }
-    .download-btn {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #0077cc;
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        border-radius: 5px;
-        text-align: center;
-        margin-top: 20px;
-    }
-    .download-btn:hover {
-        background-color: #005fa3;
-    }
-    form {
-        margin-top: 20px;
-    }
-    input, textarea {
-        width: 100%;
-        padding: 10px;
-        margin: 5px 0;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-    }
-    input[type="submit"] {
-        background-color: #0077cc;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-    }
-    input[type="submit"]:hover {
-        background-color: #005fa3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comfort Kare - Gentle Care, Every Time</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #0077cc;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .contact-form {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            width: 50%;
+            margin: auto;
+            text-align: left;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #0077cc;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+        input[type="submit"]:hover {
+            background-color: #005fa3;
+        }
+    </style>
 </head>
 <body>
-  <div class="wrapper">
-    <header>
-      <div class="header-container">
-        <img src="logo.png" alt="Comfort Kare Logo" class="logo">
-        <nav>
-          <a href="#" onclick="showSection('about')">About Us</a>
-          <a href="#" onclick="showSection('products')">Products</a>
-          <a href="#" onclick="showSection('offers')">Offers</a>
-          <a href="#" onclick="showSection('contact')">Contact Us</a>
-          <a href="#" onclick="showSection('rate_us')">Rate Us</a>
-          <a href="#" onclick="showSection('cart')">Cart</a>
-        </nav>
-      </div>
-    </header>
+    <div class="wrapper">
+        <header>
+            <div class="header-container">
+                <img src="logo.png" alt="Comfort Kare Logo" class="logo">
+                <nav>
+                    <a href="#" onclick="showSection('about')">About Us</a>
+                    <a href="#" onclick="showSection('products')">Products</a>
+                    <a href="#" onclick="showSection('offers')">Offers</a>
+                    <a href="#" onclick="showSection('contact')">Contact Us</a>
+                    <a href="#" onclick="showSection('cart')">Cart</a>
+                </nav>
+            </div>
+        </header>
 
-    <main id="main-content">
-      <h2><b>Welcome to Comfort Kare</b></h2>
-      <p>Bringing comfort and care to every touch. We specialize in high-quality tissue products that serve families, professionals, and businesses alike.</p>
-    </main>
+        <main id="main-content">
+            <h2><b>Welcome to Comfort Kare</b></h2>
+            <p>Bringing comfort and care to every touch. We specialize in high-quality tissue products that serve families, professionals, and businesses alike.</p>
+        </main>
 
-    <footer>
-      <p>&copy; 2025 Comfort Kare. All Rights Reserved.</p>
-    </footer>
-  </div>
+        <footer>
+            <p>&copy; 2025 Comfort Kare. All Rights Reserved.</p>
+        </footer>
+    </div>
 
-  <script>
-    function showSection(section) {
-        const mainContent = document.getElementById('main-content');
+    <script>
+        function showSection(section) {
+            const mainContent = document.getElementById('main-content');
 
-        if (section === 'about') {
-            mainContent.innerHTML = `
-                <h2>About Us</h2>
-                <p>Founded on <b>October 1, 2024</b>, <b>Comfort Kare</b> specializes in <b>premium tissue products</b>, offering both high-quality manufactured tissues and carefully sourced resale tissue brands.</p>
-                <h3>Factsheet</h3>
-                <table>
-                    <tr><th>Category</th><th>Details</th></tr>
-                    <tr><td>Nature of Business</td><td>Manufacturer & Reseller</td></tr>
-                    <tr><td>Company Ownership</td><td>Sole Proprietorship</td></tr>
-                    <tr><td>Founder & Owner</td><td>Mohamed Ibrahim Badusha</td></tr>
-                    <tr><td>Registered Address</td><td>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu 610001</td></tr>
-                    <tr><td>Total Number of Employees</td><td>15</td></tr>
-                </table>
-            `;
-        } 
-        else if (section === 'rate_us') {
-            mainContent.innerHTML = `
-                <h2>Rate Comfort Kare Products</h2>
-                <p>Let us know your experience with Comfort Kare!</p>
-                <form action="submit_rating.php" method="POST">
-                    <label for="stars">Rate Us (1-5):</label>
-                    <select name="stars" id="stars">
-                        <option value="5">⭐⭐⭐⭐⭐ (Excellent)</option>
-                        <option value="4">⭐⭐⭐⭐ (Very Good)</option>
-                        <option value="3">⭐⭐⭐ (Average)</option>
-                        <option value="2">⭐⭐ (Below Average)</option>
-                        <option value="1">⭐ (Poor)</option>
-                    </select>
-                    <button type="submit">Submit Rating</button>
-                </form>
-            `;
+            if (section === 'about') {
+                mainContent.innerHTML = `
+                    <h2>About Us</h2>
+                    <p>Founded on <b>October 1, 2024</b>, <b>Comfort Kare</b> specializes in <b>premium tissue products</b>, offering both high-quality manufactured tissues and carefully sourced resale tissue brands.</p>
+                    <h3>Factsheet</h3>
+                    <table>
+                        <tr><th>Category</th><th>Details</th></tr>
+                        <tr><td>Nature of Business</td><td>Manufacturer & Reseller</td></tr>
+                        <tr><td>Company Ownership</td><td>Sole Proprietorship</td></tr>
+                        <tr><td>Founder & Owner</td><td>Mohamed Ibrahim Badusha</td></tr>
+                        <tr><td>Registered Address</td><td>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu 610001</td></tr>
+                        <tr><td>Total Number of Employees</td><td>15</td></tr>
+                    </table>
+                `;
+            }
+            else if (section === 'products') {
+    let catalogs = [
+        { name: "Comfort Kare - Premium Collection", file: "https://comfortkare.github.io/brochure/premium/Comfort%20Kare%20-%20Premium%20Collection.pdf" },
+        { name: "Comfort Kare - Special Edition", file: "https://comfortkare.github.io/brochure/special-edition/Comfort%20Kare%20-%20Special%20Edition.pdf" },
+        { name: "Comfort Kare - Festive Collection", file: "https://comfortkare.github.io/brochure/festive/Comfort%20Kare%20-%20Festive%20Collection.pdf" }
+    ];
+
+    let catalogList = `<h2>Our Product Catalogs</h2>
+        <p>Explore our premium tissue collections. Click below to view or download the latest catalogs.</p>
+        <table>
+            <tr><th>Catalog Name</th><th>Preview / Download</th></tr>`;
+
+    catalogs.forEach(catalog => {
+        catalogList += `<tr>
+                <td>${catalog.name}</td>
+                <td>
+                    <a href="${catalog.file}" target="_blank" class="view-btn">View</a> | 
+                    <a href="${catalog.file}" download="${catalog.name}.pdf" class="download-btn">Download</a>
+                </td>
+            </tr>`;
+    });
+
+    catalogList += `</table>`;
+    mainContent.innerHTML = catalogList;
+}
+		else if (section === 'contact') {
+                mainContent.innerHTML = `
+                    <h2>Contact Us</h2>
+                    <p>Reach out to us for any inquiries or requests.</p>
+                    <table>
+                        <tr><th>Contact Method</th><th>Details</th></tr>
+                        <tr><td>Email</td><td><a href="mailto:info@comfortkare.com">info@comfortkare.com</a></td></tr>
+                        <tr><td>Phone</td><td><a href="tel:+917868879893">+91 78688 79893</a></td></tr>
+                        <tr><td>WhatsApp</td><td><a href="https://wa.me/917868879893">Chat on WhatsApp</a></td></tr>
+                        <tr><td>Address</td><td>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu, India 610001</td></tr>
+                    </table>
+
+                    <h3>Contact Form</h3>
+                    <form action="submit_contact.php" method="POST" class="contact-form">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" required><br><br>
+
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="email" required><br><br>
+
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" required></textarea><br><br>
+
+                        <input type="submit" value="Send Message">
+                    </form>
+                `;
+            }
         }
-    }
-  </script>
+    </script>
 </body>
 </html>
