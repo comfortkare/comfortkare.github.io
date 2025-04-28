@@ -71,7 +71,7 @@ footer {
 .download-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ff66b2; /* Pink color */
+    background-color: rgb(253, 168, 168); /* Pink color */
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -81,5 +81,5 @@ footer {
 }
 
 .download-btn:hover {
-    background-color: #cc3399; /* Darker pink on hover */
+    background-color: rgb(253, 168, 168) !important; /* Darker coral color on hover */
 }
