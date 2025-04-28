@@ -1,42 +1,26 @@
-.catalog-hero {
-    background-image: url('catalog-background.jpg'); /* your catalog background */
+.catalog-background {
+    background: url('your-background-image.jpg') no-repeat center center;
     background-size: cover;
-    background-position: center;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-height: 100vh;
+}
+
+.catalog-center {
     text-align: center;
-    color: #ffffff;
-    padding: 20px;
+    padding-top: 150px;
+    color: #003366;
 }
 
-.catalog-hero-content {
-    background-color: rgba(0, 0, 0, 0.5); /* light black transparent */
-    padding: 40px;
-    border-radius: 10px;
-}
-
-.catalog-hero-content h1 {
-    font-size: 50px;
-    margin-bottom: 20px;
-}
-
-.catalog-hero-content p {
-    font-size: 22px;
-    margin-bottom: 30px;
-}
-
-.catalog-download-button {
-    background-color: #ff66b2;
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #0077cc;
     color: white;
-    padding: 12px 24px;
-    border-radius: 6px;
     text-decoration: none;
     font-size: 18px;
-    font-weight: bold;
+    border-radius: 8px;
 }
 
-.catalog-download-button:hover {
-    background-color: #ff3385;
+.download-button:hover {
+    background-color: #005fa3;
 }
