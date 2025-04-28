@@ -119,7 +119,7 @@
                         <td>${catalog.name}</td>
                         <td>${new Date(lastModified).toISOString().split('T')[0]}</td>
                         <td>
-                            <a href="${catalog.file}" target="_blank">View</a> | 
+                            <a href="${catalog.file}" target="_blank" class="view-btn">View</a> | 
                             <a href="${catalog.file}" download="${catalog.name}.pdf" class="download-btn">Download</a>
                         </td>
                     </tr>`;
