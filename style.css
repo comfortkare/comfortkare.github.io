@@ -1,26 +1,54 @@
-.catalog-background {
-    background: url('your-background-image.jpg') no-repeat center center;
-    background-size: cover;
-    min-height: 100vh;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.catalog-center {
-    text-align: center;
-    padding-top: 150px;
-    color: #003366;
-}
-
-.download-button {
-    display: inline-block;
+header {
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
     padding: 10px 20px;
-    margin-top: 20px;
-    background-color: #0077cc;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    border-radius: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
-.download-button:hover {
-    background-color: #005fa3;
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 50px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0077cc;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+section {
+    padding: 20px;
+    background: #ffffff;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    color: #555;
+    font-size: 14px;
+    margin-top: 20px;
 }
