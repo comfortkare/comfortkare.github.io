@@ -72,7 +72,6 @@
     async function showSection(section) {
         const mainContent = document.getElementById('main-content');
 
-        // About Us Section
         if (section === 'about') {
             mainContent.innerHTML = `
                 <h2>About Us</h2>
@@ -92,8 +91,6 @@
                 </table>
             `;
         } 
-        
-        // Products Section with Downloadable Brochures & Dynamic Dates
         else if (section === 'products') {
             let catalogs = [
                 { name: "Comfort Kare - Premium Collection", file: "https://comfortkare.github.io/brochure/premium/Comfort%20Kare%20-%20Premium%20Collection.pdf" },
