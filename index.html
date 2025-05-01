@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Comfort Kare - Gentle Care, Every Time</title>
+    <title>Comfort Kare - Premium Tissue Products</title>
     <link rel="stylesheet" href="style.css">
     <style>
         /* General Styles */
@@ -143,40 +143,54 @@
 
         .contact-item {
             background: white;
-            padding: 15px;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
             text-align: center;
+            font-size: 16px;
         }
 
         .contact-item h4 {
             color: #0077cc;
             margin-bottom: 10px;
+            font-size: 18px;
         }
 
         .contact-form {
             background: #f9f9f9;
-            padding: 20px;
+            padding: 25px;
             border-radius: 8px;
             width: 50%;
             margin: auto;
             text-align: left;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
         }
 
-        .contact-form input, .contact-form textarea {
+        .contact-form label {
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .contact-form select, .contact-form input, .contact-form textarea {
             width: 100%;
-            padding: 10px;
-            margin: 5px 0;
+            padding: 12px;
+            margin: 8px 0;
             border: 1px solid #ddd;
             border-radius: 5px;
+            font-size: 14px;
         }
 
         .contact-form input[type="submit"] {
             background-color: #0077cc;
             color: white;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             border: none;
+            padding: 12px;
+            border-radius: 5px;
         }
 
         .contact-form input[type="submit"]:hover {
@@ -194,7 +208,7 @@
                     <a href="#" onclick="showSection('products')">Products</a>
                     <a href="#" onclick="showSection('offers')">Offers</a>
                     <a href="#" onclick="showSection('contact')">Contact Us</a>
-                    <a href="#" onclick="showSection('cart')">Cart</a>
+                    <a href="#" onclick="showSection('shop')">Shop Now</a>
                 </nav>
             </div>
         </header>
@@ -209,45 +223,6 @@
         </footer>
     </div>
 
-    <script>
-        function showSection(section) {
-            const mainContent = document.getElementById('main-content');
-
-            if (section === 'about') {
-                mainContent.innerHTML = `
-                    <h2>About Us</h2>
-                    <div class="factsheet-container">
-                        <div class="factsheet-item"><h4>Nature of Business</h4><p>Manufacturer & Reseller</p></div>
-                        <div class="factsheet-item"><h4>Company Ownership</h4><p>Sole Proprietorship</p></div>
-                        <div class="factsheet-item"><h4>Founder & Owner</h4><p>Mohamed Ibrahim Badusha</p></div>
-                        <div class="factsheet-item"><h4>Registered Address</h4><p>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu 610001</p></div>
-                        <div class="factsheet-item"><h4>Total Number of Employees</h4><p>15</p></div>
-                    </div>
-                `;
-            } 
-            else if (section === 'products') {
-                let catalogs = [
-                    { name: "Comfort Kare - Premium Collection", file: "#" },
-                    { name: "Comfort Kare - Special Edition", file: "#" },
-                    { name: "Comfort Kare - Festive Collection", file: "#" }
-                ];
-
-                let catalogGrid = `<h2>Our Product Catalogs</h2>
-                    <div class="catalog-container">`;
-
-                catalogs.forEach(catalog => {
-                    catalogGrid += `<div class="catalog-item">
-                            <h4>${catalog.name}</h4>
-                            <a href="${catalog.file}" target="_blank" class="view-btn">View</a>
-                            <a href="${catalog.file}" download="${catalog.name}.pdf" class="download-btn">Download</a>
-                        </div>`;
-                });
-
-                catalogGrid += `</div>`;
-                mainContent.innerHTML = catalogGrid;
-            }
-        }
-    </script>
 <script>
     function showSection(section) {
         const mainContent = document.getElementById('main-content');
@@ -255,9 +230,6 @@
         if (section === 'about') {
             mainContent.innerHTML = `
                 <h2>About Us</h2>
-                <p>Founded on <b>October 1, 2024</b>, <b>Comfort Kare</b> specializes in <b>premium tissue products</b>, offering both high-quality manufactured tissues and carefully sourced resale tissue brands.</p>
-
-                <h3>Factsheet</h3>
                 <div class="factsheet-container">
                     <div class="factsheet-item"><h4>Nature of Business</h4><p>Manufacturer & Reseller</p></div>
                     <div class="factsheet-item"><h4>Company Ownership</h4><p>Sole Proprietorship</p></div>
@@ -266,7 +238,7 @@
                     <div class="factsheet-item"><h4>Total Number of Employees</h4><p>15</p></div>
                 </div>
             `;
-        }
+        } 
         else if (section === 'products') {
             let catalogs = [
                 { name: "Comfort Kare - Premium Collection", file: "#" },
@@ -290,8 +262,8 @@
         }
         else if (section === 'contact') {
             mainContent.innerHTML = `
-                <h2>Contact Us</h2>
-                <p>Reach out to us for any inquiries or requests.</p>
+                <h2>Get In Touch</h2>
+                <p>We welcome all enquiries, quotations, feedback, and suggestions. Select the appropriate section below.</p>
 
                 <div class="contact-container">
                     <div class="contact-item"><h4>Email</h4><p><a href="mailto:info@comfortkare.com">info@comfortkare.com</a></p></div>
@@ -300,19 +272,64 @@
                     <div class="contact-item"><h4>Address</h4><p>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu, India 610001</p></div>
                 </div>
 
-                <h3>Contact Form</h3>
-                <form action="submit_contact.php" method="POST" class="contact-form">
-                    <label for="name">Your Name:</label>
+                <h3>Enquiries & Quotations</h3>
+                <form action="submit_enquiry.php" method="POST" class="contact-form">
+                    <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" required>
 
-                    <label for="email">Your Email:</label>
+                    <label for="phone">Your Mobile Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="email">Your Email</label>
                     <input type="email" id="email" name="email" required>
 
-                    <label for="message">Your Message:</label>
+                    <label for="message">Your Inquiry</label>
                     <textarea id="message" name="message" required></textarea>
 
-                    <input type="submit" value="Send Message">
+                    <input type="submit" value="Submit Inquiry">
                 </form>
+
+                <h3>Complaints, Feedback & Suggestions</h3>
+                <form action="submit_feedback.php" method="POST" class="contact-form">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="phone">Your Mobile Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Your Feedback</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <input type="submit" value="Submit Feedback">
+                </form>
+            `;
+        }
+        else if (section === 'offers') {
+            mainContent.innerHTML = `
+                <h2>Exclusive Offers</h2>
+                <p>Discover the latest discounts and special deals on our premium tissue products.</p>
+                <div class="offers-container">
+                    <div class="offers-item">
+                        <h4>Buy 3, Get 1 Free!</h4>
+                        <p>Purchase any 3 packs of Comfort Kare tissues and receive 1 free!</p>
+                    </div>
+                    <div class="offers-item">
+                        <h4>10% Off on Bulk Orders</h4>
+                        <p>Enjoy a 10% discount when ordering 10 or more tissue boxes.</p>
+                    </div>
+                </div>
+            `;
+        }
+        else if (section === 'shop') {
+            mainContent.innerHTML = `
+                <h2>Shop Now</h2>
+                <p>Explore our exclusive collection of high-quality tissue products.</p>
+                <div class="shop-container">
+                    <p>Coming soon...</p>
+                </div>
             `;
         }
     }
