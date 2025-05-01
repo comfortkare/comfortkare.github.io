@@ -6,50 +6,180 @@
     <title>Comfort Kare - Gentle Care, Every Time</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        /* General Styles */
+        body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
         }
-        th, td {
+
+        html, body {
+            height: 100%;
+        }
+
+        .wrapper {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #ffffff;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+            padding: 10px 20px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0077cc;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* Factsheet (About Us) */
+        .factsheet-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .factsheet-item {
+            background: white;
             padding: 15px;
-            text-align: left;
-            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
         }
-        th {
+
+        .factsheet-item h4 {
+            color: #0077cc;
+            margin-bottom: 5px;
+        }
+
+        /* Product Catalog */
+        .catalog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .catalog-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .catalog-item h4 {
+            color: #0077cc;
+            margin-bottom: 10px;
+        }
+
+        .view-btn, .download-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        .view-btn {
             background-color: #0077cc;
             color: white;
         }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
+
+        .download-btn {
+            background-color: rgb(253, 168, 168);
+            color: white;
         }
-        tr:hover {
-            background-color: #ddd;
+
+        .view-btn:hover {
+            background-color: #005fa3;
         }
+
+        .download-btn:hover {
+            background-color: rgb(233, 148, 148);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .contact-item h4 {
+            color: #0077cc;
+            margin-bottom: 10px;
+        }
+
         .contact-form {
             background: #f9f9f9;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 8px;
             width: 50%;
             margin: auto;
             text-align: left;
         }
-        input, textarea {
+
+        .contact-form input, .contact-form textarea {
             width: 100%;
             padding: 10px;
             margin: 5px 0;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-        input[type="submit"] {
+
+        .contact-form input[type="submit"] {
             background-color: #0077cc;
             color: white;
             font-weight: bold;
             cursor: pointer;
             border: none;
         }
-        input[type="submit"]:hover {
+
+        .contact-form input[type="submit"]:hover {
             background-color: #005fa3;
         }
     </style>
@@ -86,71 +216,106 @@
             if (section === 'about') {
                 mainContent.innerHTML = `
                     <h2>About Us</h2>
-                    <p>Founded on <b>October 1, 2024</b>, <b>Comfort Kare</b> specializes in <b>premium tissue products</b>, offering both high-quality manufactured tissues and carefully sourced resale tissue brands.</p>
-                    <h3>Factsheet</h3>
-                    <table>
-                        <tr><th>Category</th><th>Details</th></tr>
-                        <tr><td>Nature of Business</td><td>Manufacturer & Reseller</td></tr>
-                        <tr><td>Company Ownership</td><td>Sole Proprietorship</td></tr>
-                        <tr><td>Founder & Owner</td><td>Mohamed Ibrahim Badusha</td></tr>
-                        <tr><td>Registered Address</td><td>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu 610001</td></tr>
-                        <tr><td>Total Number of Employees</td><td>15</td></tr>
-                    </table>
+                    <div class="factsheet-container">
+                        <div class="factsheet-item"><h4>Nature of Business</h4><p>Manufacturer & Reseller</p></div>
+                        <div class="factsheet-item"><h4>Company Ownership</h4><p>Sole Proprietorship</p></div>
+                        <div class="factsheet-item"><h4>Founder & Owner</h4><p>Mohamed Ibrahim Badusha</p></div>
+                        <div class="factsheet-item"><h4>Registered Address</h4><p>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu 610001</p></div>
+                        <div class="factsheet-item"><h4>Total Number of Employees</h4><p>15</p></div>
+                    </div>
                 `;
-            }
+            } 
             else if (section === 'products') {
-    let catalogs = [
-        { name: "Comfort Kare - Premium Collection", file: "https://comfortkare.github.io/brochure/premium/Comfort%20Kare%20-%20Premium%20Collection.pdf" },
-        { name: "Comfort Kare - Special Edition", file: "https://comfortkare.github.io/brochure/special-edition/Comfort%20Kare%20-%20Special%20Edition.pdf" },
-        { name: "Comfort Kare - Festive Collection", file: "https://comfortkare.github.io/brochure/festive/Comfort%20Kare%20-%20Festive%20Collection.pdf" }
-    ];
+                let catalogs = [
+                    { name: "Comfort Kare - Premium Collection", file: "#" },
+                    { name: "Comfort Kare - Special Edition", file: "#" },
+                    { name: "Comfort Kare - Festive Collection", file: "#" }
+                ];
 
-    let catalogList = `<h2>Our Product Catalogs</h2>
-        <p>Explore our premium tissue collections. Click below to view or download the latest catalogs.</p>
-        <table>
-            <tr><th>Catalog Name</th><th>Preview / Download</th></tr>`;
+                let catalogGrid = `<h2>Our Product Catalogs</h2>
+                    <div class="catalog-container">`;
 
-    catalogs.forEach(catalog => {
-        catalogList += `<tr>
-                <td>${catalog.name}</td>
-                <td>
-                    <a href="${catalog.file}" target="_blank" class="view-btn">View</a> | 
-                    <a href="${catalog.file}" download="${catalog.name}.pdf" class="download-btn">Download</a>
-                </td>
-            </tr>`;
-    });
+                catalogs.forEach(catalog => {
+                    catalogGrid += `<div class="catalog-item">
+                            <h4>${catalog.name}</h4>
+                            <a href="${catalog.file}" target="_blank" class="view-btn">View</a>
+                            <a href="${catalog.file}" download="${catalog.name}.pdf" class="download-btn">Download</a>
+                        </div>`;
+                });
 
-    catalogList += `</table>`;
-    mainContent.innerHTML = catalogList;
-}
-		else if (section === 'contact') {
-                mainContent.innerHTML = `
-                    <h2>Contact Us</h2>
-                    <p>Reach out to us for any inquiries or requests.</p>
-                    <table>
-                        <tr><th>Contact Method</th><th>Details</th></tr>
-                        <tr><td>Email</td><td><a href="mailto:info@comfortkare.com">info@comfortkare.com</a></td></tr>
-                        <tr><td>Phone</td><td><a href="tel:+917868879893">+91 78688 79893</a></td></tr>
-                        <tr><td>WhatsApp</td><td><a href="https://wa.me/917868879893">Chat on WhatsApp</a></td></tr>
-                        <tr><td>Address</td><td>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu, India 610001</td></tr>
-                    </table>
-
-                    <h3>Contact Form</h3>
-                    <form action="submit_contact.php" method="POST" class="contact-form">
-                        <label for="name">Your Name:</label>
-                        <input type="text" id="name" name="name" required><br><br>
-
-                        <label for="email">Your Email:</label>
-                        <input type="email" id="email" name="email" required><br><br>
-
-                        <label for="message">Your Message:</label>
-                        <textarea id="message" name="message" required></textarea><br><br>
-
-                        <input type="submit" value="Send Message">
-                    </form>
-                `;
+                catalogGrid += `</div>`;
+                mainContent.innerHTML = catalogGrid;
             }
         }
     </script>
+<script>
+    function showSection(section) {
+        const mainContent = document.getElementById('main-content');
+
+        if (section === 'about') {
+            mainContent.innerHTML = `
+                <h2>About Us</h2>
+                <p>Founded on <b>October 1, 2024</b>, <b>Comfort Kare</b> specializes in <b>premium tissue products</b>, offering both high-quality manufactured tissues and carefully sourced resale tissue brands.</p>
+
+                <h3>Factsheet</h3>
+                <div class="factsheet-container">
+                    <div class="factsheet-item"><h4>Nature of Business</h4><p>Manufacturer & Reseller</p></div>
+                    <div class="factsheet-item"><h4>Company Ownership</h4><p>Sole Proprietorship</p></div>
+                    <div class="factsheet-item"><h4>Founder & Owner</h4><p>Mohamed Ibrahim Badusha</p></div>
+                    <div class="factsheet-item"><h4>Registered Address</h4><p>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu 610001</p></div>
+                    <div class="factsheet-item"><h4>Total Number of Employees</h4><p>15</p></div>
+                </div>
+            `;
+        }
+        else if (section === 'products') {
+            let catalogs = [
+                { name: "Comfort Kare - Premium Collection", file: "#" },
+                { name: "Comfort Kare - Special Edition", file: "#" },
+                { name: "Comfort Kare - Festive Collection", file: "#" }
+            ];
+
+            let catalogGrid = `<h2>Our Product Catalogs</h2>
+                <div class="catalog-container">`;
+
+            catalogs.forEach(catalog => {
+                catalogGrid += `<div class="catalog-item">
+                        <h4>${catalog.name}</h4>
+                        <a href="${catalog.file}" target="_blank" class="view-btn">View</a>
+                        <a href="${catalog.file}" download="${catalog.name}.pdf" class="download-btn">Download</a>
+                    </div>`;
+            });
+
+            catalogGrid += `</div>`;
+            mainContent.innerHTML = catalogGrid;
+        }
+        else if (section === 'contact') {
+            mainContent.innerHTML = `
+                <h2>Contact Us</h2>
+                <p>Reach out to us for any inquiries or requests.</p>
+
+                <div class="contact-container">
+                    <div class="contact-item"><h4>Email</h4><p><a href="mailto:info@comfortkare.com">info@comfortkare.com</a></p></div>
+                    <div class="contact-item"><h4>Phone</h4><p><a href="tel:+917868879893">+91 78688 79893</a></p></div>
+                    <div class="contact-item"><h4>WhatsApp</h4><p><a href="https://wa.me/917868879893">Chat on WhatsApp</a></p></div>
+                    <div class="contact-item"><h4>Address</h4><p>2, VIP Nagar, Kodikkal Palayam, Thiruvarur, Tamil Nadu, India 610001</p></div>
+                </div>
+
+                <h3>Contact Form</h3>
+                <form action="submit_contact.php" method="POST" class="contact-form">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <input type="submit" value="Send Message">
+                </form>
+            `;
+        }
+    }
+</script>
 </body>
 </html>
