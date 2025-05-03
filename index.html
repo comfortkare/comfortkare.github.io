@@ -199,7 +199,6 @@
     </style>
 </head>
 <body>
-
     <div class="wrapper">
         <header>
             <div class="header-container">
@@ -328,28 +327,39 @@ else if (section === 'products') {
                 </div>
             `;
         }
-	else if (section === 'shop') {
-            fetch('fetch_products.php')
-                .then(response => response.text())
-                .then(data => {
-                    console.log("Fetched data:", data);
-                    mainContent.innerHTML = `
-                        <h2>Shop Now</h2>
-                        <p>Explore our exclusive collection of high-quality tissue products.</p>
-                        <div class="shop-container">${data}</div>
-                    `;
-                })
-                .catch(error => {
-                    console.error("Error fetching products:", error);
-                    mainContent.innerHTML = `<h2>Shop Now</h2><p>Error loading products. Please try again later.</p>`;
-                });
-        } else {
-            mainContent.innerHTML = `<h2>${section}</h2><p>Content loading...</p>`;
-        }
+else if (section === "shop") {
+    mainContent.innerHTML = `<h2>Shop Now</h2><p>Loading products...</p>`; // ✅ Show loading state
+
+    fetch("fetch_products.php")
+        .then(async (response) => {
+            if (!response.ok) throw new Error("Failed to fetch products.");
+            const data = await response.text();
+            console.log("Fetched data:", data);
+
+            // ✅ Ensure response is valid before updating UI
+            if (!data || data.trim() === "") {
+                throw new Error("No products available.");
+            }
+
+            mainContent.innerHTML = `
+                <h2>Shop Now</h2>
+                <p>Explore our exclusive collection of high-quality tissue products.</p>
+                <div class="shop-container">${data}</div>
+            `;
+        })
+        .catch((error) => {
+            console.error("Error fetching products:", error);
+            mainContent.innerHTML = `
+                <h2>Shop Now</h2>
+                <p class="error-message">Oops! Something went wrong. Please refresh or try again later.</p>
+            `;
+        });
+} else {
+    mainContent.innerHTML = `<h2>${section}</h2><p>Content loading...</p>`;
+}
     }
 </script>
 
 <script src="/Comfortkare/cart.js"></script>
-<script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
 </body>
 </html>
